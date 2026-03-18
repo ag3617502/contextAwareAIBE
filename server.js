@@ -18,7 +18,13 @@ const port = process.env.PORT || 5001;
 
 // Middleware Setup
 // Enabling CORS so our frontend (likely on another port) can communicate with us
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://ag3617502.github.io",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
 
 // Parsing JSON bodies for incoming requests
 app.use(express.json());
