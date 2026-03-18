@@ -5,7 +5,7 @@ const path = require('path');
 const connectDB = require('./config/db');
 
 // Load environment variables from the root directory
-dotenv.config({ path: path.join(__dirname, '../.env') });
+dotenv.config({ path: path.join(__dirname, './.env') });
 
 /**
  * Initialize the database connection.
@@ -14,13 +14,11 @@ dotenv.config({ path: path.join(__dirname, '../.env') });
 connectDB();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 // Middleware Setup
 // Enabling CORS so our frontend (likely on another port) can communicate with us
-app.use(cors({
-  exposedHeaders: ['X-Conversation-Id']
-}));
+app.use(cors());
 
 // Parsing JSON bodies for incoming requests
 app.use(express.json());
