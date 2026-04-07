@@ -23,6 +23,7 @@ app.use(
     origin: "https://ag3617502.github.io",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    exposedHeaders: ["X-Conversation-Id"],
   }),
 );
 
